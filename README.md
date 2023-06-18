@@ -14,9 +14,9 @@ The README File Generator is a command-line application that helps you generate 
 
 ## Installation
 To use the README File Generator, you need to have Node.js installed on your machine. You can download Node.js from the official website (https://nodejs.org). Once you have Node.js installed, you can clone this repository and run the following command in your terminal to install the required dependencies:
-                          npm install inquirer
-                          npm install fs
-                          npm install dayjs
+## npm install inquirer
+## npm install fs
+## npm install dayjs
 
 
 ## Usage
