@@ -1,16 +1,16 @@
 const dayjs = require('dayjs');
-var currentDay = dayjs().format('MM/DD/YYYY');
+var currentDay = dayjs().format('MM/DD/YYYY'); //this dayjs library is used for copyright section
 
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
+function renderLicenseBadge(license) {  //displayed next to the title of the project
   
     let badge = '';
   
     switch (license) {
       case 'MIT':
-        badge = '[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
+        badge = '[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'; //those links are from shields.io and displayed as a badge
         break;
       case 'GNU GPLv3':
         badge = '[License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
@@ -23,7 +23,7 @@ function renderLicenseBadge(license) {
         break;
   
         default:
-        badge = '';
+        badge = ''; //if there is no license, return an empty string
     }
   
     return badge;
@@ -49,7 +49,7 @@ function renderLicenseLink(license) {
           link = 'https://opensource.org/licenses/ISC';
           break;
         default:
-          link = '';
+          link = ''; // if there is no license, return an empty string
       }
     
       return link;
@@ -65,22 +65,20 @@ function renderLicenseSection(license) {
         return '';
       }
     
-      return `## License    
+      return `## License 
     This project is licensed under the ${license} license.      
     For more information, please visit ${licenseLink}`;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `
-  # Title 
-  ${data.title} 
+  return ` ## ${data.title} 
 
   ${renderLicenseBadge(data.license)}  
   
   ## Table of Contents
-  * [Title](#title)
-  * [Description](#description)
+  * [Title](#title) 
+  * [Description](#description) 
   * [Installation](#installation)
   * [Usage](#usage)
   * [Features](#features)
@@ -88,7 +86,6 @@ function generateMarkdown(data) {
   * [Contribution](#contribution)
   * [Tests](#tests)
   * [Resources](#resources)
-  * [Author](#author)
   * [Questions](#Questions)
 
   ## Description
@@ -106,7 +103,7 @@ function generateMarkdown(data) {
   ${data.features}
 
   ## Examples
-  ${data.examples}
+  ${data.Examples}
 
   ## Contribution
   ${data.contribution}
@@ -117,15 +114,13 @@ function generateMarkdown(data) {
   ## Resources
   ${data.resources}
 
-  ## Author
-  ${data.author}
-
   ## Questions
-  For additional questions, contact me via:
-  - GitHub: [${data.github}](https://github.com/${data.github})
+  For additional questions, contact ${data.Author} via:
+  - GitHub: [${data.gitHub}](https://github.com/${data.gitHub})
   - Email: ${data.email}
 
 ++++++++++++++++++++++++ copyright (c) ${data.title} ${currentDay} ++++++++++++++++++++++++`;
 }
 
 module.exports = generateMarkdown;
+

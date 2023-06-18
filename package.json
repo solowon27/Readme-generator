@@ -11,6 +11,6 @@
   "dependencies": {
     "dayjs": "^1.11.8",
     "fs": "^0.0.1-security",
-    "inquirer": "^8.2.4"
+    "inquirer": "^8.2.5"
   }
 }
