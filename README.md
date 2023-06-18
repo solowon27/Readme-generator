@@ -30,8 +30,8 @@ This project is not under any license.
 Contributions to this project are welcome. If you would like to contribute, please fork the repository and submit a pull request.
 
 ## Tests
-To run the tests for this project, you need to have the Jest testing framework installed. You can install it by running the following command:
-The tests are located in the `__tests__` directory.
+To run the tests for this project, run the following command in your terminal:
+node index.js after you have installed the dependencies.
 
 ## Questions
 If you have any questions or need support, please contact the project author:
