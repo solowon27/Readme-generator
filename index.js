@@ -45,7 +45,7 @@ const questions = [ //this is an array of question
     {
         type: 'list',// here is the list of choices for desired license choice
         name: 'license',
-        message: 'Choose a \x1b[32m license \x1b[0m for your project:',
+        message: 'Choose a \x1b[32m license \x1b[0m for your project:', //we use color codes to make neccessary text stand out
         choices: ['MIT', 'GNU GPLv3', 'Apache 2.0', 'ISC', 'None'], 
         validate: license => { 
             if (license) {
@@ -147,7 +147,7 @@ const questions = [ //this is an array of question
 
 
 function writeToFile(fileName, data) { //this is our function which allow us to create a readme.md file and writing a data to it!
-    fs.writeFile('./README.MD', fileName, data, function (err) {   
+    fs.writeFile('./README.MD', fileName, data, function (err) {   //this is the fs.writeFile function which will create a readme.md file and write the data to it
         if (err) {
             return console.log(err); 
         }
@@ -161,7 +161,7 @@ function init() { //this is our function which initialize the application and pr
         (data) {
         console.log(data);
         var fileName = generateMarkdown(data); //this fileName variable will hold the data that is passed into the generateMarkdown function
-        writeToFile(fileName)
+        writeToFile(fileName) //this will call the writeToFile function and pass the fileName variable into it
         }
     )
 }
