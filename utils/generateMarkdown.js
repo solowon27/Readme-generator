@@ -1,16 +1,15 @@
-const dayjs = require('dayjs');
-var currentDay = dayjs().format('MM/DD/YYYY'); //this dayjs library is used for copyright section
-
+const dayjs = require('dayjs'); //require dayjs library
+var currentDay = dayjs().format('MM/DD/YYYY'); //our current day variable which displays the current date
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {  //displayed next to the title of the project
+function renderLicenseBadge(license) {   //this function will return a license badge based on which license is passed in
   
-    let badge = '';
+    let badge = ''; 
   
     switch (license) {
       case 'MIT':
-        badge = '[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'; //those links are from shields.io and displayed as a badge
+        badge = '[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'; 
         break;
       case 'GNU GPLv3':
         badge = '[License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
@@ -23,7 +22,7 @@ function renderLicenseBadge(license) {  //displayed next to the title of the pro
         break;
   
         default:
-        badge = ''; //if there is no license, return an empty string
+        badge = ''; //return an empty string if there is no license
     }
   
     return badge;
@@ -31,9 +30,9 @@ function renderLicenseBadge(license) {  //displayed next to the title of the pro
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {
+function renderLicenseLink(license) {  //this function will return a license link based on which license is passed in
   
-      let link = '';
+      let link = ''; 
     
       switch (license) {
         case 'MIT':
@@ -48,8 +47,8 @@ function renderLicenseLink(license) {
         case 'ISC':
           link = 'https://opensource.org/licenses/ISC';
           break;
-        default:
-          link = ''; // if there is no license, return an empty string
+        default: 
+          link = ''; //return an empty string if there is no license
       }
     
       return link;
@@ -77,7 +76,7 @@ function generateMarkdown(data) {
   ${renderLicenseBadge(data.license)}  
   
   ## Table of Contents
-  * [Title](#title) 
+  * [Title](#title)  
   * [Description](#description) 
   * [Installation](#installation)
   * [Usage](#usage)
@@ -97,7 +96,7 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
-  ${renderLicenseSection(data.license)} 
+  ${renderLicenseSection(data.license)}
   
   ## Features
   ${data.features}
@@ -119,8 +118,11 @@ function generateMarkdown(data) {
   - GitHub: [${data.gitHub}](https://github.com/${data.gitHub})
   - Email: ${data.email}
 
-++++++++++++++++++++++++ copyright (c) ${data.title} ${currentDay} ++++++++++++++++++++++++`;
+++++++++++++ copyright (c) ${data.title} ${currentDay} ++++++++++++`;
 }
 
-module.exports = generateMarkdown;
+module.exports = generateMarkdown; //lets export the generateMarkdown function to be used in index.js
 
+
+
+// ad lets test it out

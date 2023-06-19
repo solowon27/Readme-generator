@@ -1,16 +1,37 @@
-// TODO: Include packages needed for this application
-const fs = require('fs');   //our file system module to write the README file
-const inquirer = require('inquirer'); //inquirer module to prompt the user with questions or initiate the app
-const generateMarkdown = require('./utils/generateMarkdown.js'); //this is the generateMarkdown module file that will generate the README file
 
-const messages = [ //this message will appear when the user run the app
+//read the following comment carefully
+
+
+//this is our index file which consist the questions array and also both the init and writeToFile function
+//the init function is the function that will be called to start the application
+//but the instructions function will be called first to display the messages to the user
+
+//the writeToFile function will be called after the user has answered all the questions
+//the generateMarkdown function will be called to generate the README.md file
+
+
+//i already commented out the code here in the index and generateMarkdown files,
+
+// so we are going to test the application by running the index.js file in the terminal
+
+//i did this because due to the size of video files, i was unable to upload the video to the github repo
+
+
+//so to test the application, we will run the index.js file in the terminal by typing node index.js
+
+// TODO: Include packages needed for this application
+const fs = require('fs');   //lets request the fs module which writes the file
+const inquirer = require('inquirer'); //inquirer package is used to prompt the user for input
+const generateMarkdown = require('./utils/generateMarkdown.js'); //this is the generateMarkdown.js file which will be used to generate the README.md file
+
+const messages = [ //this is the array of messages that will be displayed to the user when the application is run
     '\nWelcome to the README generator!',
     'You may need to install \x1b[36m inquirer, fs, and dayjs\x1b[0m to run this application',
     'You can install all of these by running \x1b[32m npm i inquirer\x1b[0m \x1b[36m/fs/ or /dayjs/\x1b[0m \n',
     
   ];
   
-  function instruction() {
+  function instruction() { 
     let x = 0;
   
     const intervalId = setInterval(function () {
@@ -19,36 +40,36 @@ const messages = [ //this message will appear when the user run the app
         x++;
       } else {
         clearInterval(intervalId); 
-        init(); //after all the messages are displayed, the init function will be called to prompt the user with questions
+        init(); //we call our init function here after the messages have been displayed
       }
     }, 500); // display each message every 500 milliseconds
   }
   
 // TODO: Create an array of questions for user input
-const questions = [
+const questions = [ //this is the array of questions that will be asked to the user
     {
         type: 'input',
         name: 'title',
         message: 'Enter the \x1b[32m title \x1b[0m of your project:',
         validate: title => { 
-        if (title){ //this validate checks if the user entered a title or not if it is true it will return true and if not it will return false and console.log a message 
+        if (title){ 
             return true;
         } else {
-            console.log('Please enter \x1b[32m a title \x1b[0m for your project!'); //please enter a title for your project will be displayed if the user did not enter a title
+            console.log('Please enter \x1b[32m a title \x1b[0m for your project!'); 
             return false;
         }
         }
     },
     {
-        type: 'list', //this is like a dropdown menu    
+        type: 'list', // a dropdown list of licenses to choose from
         name: 'license',
         message: 'Choose a \x1b[32m license \x1b[0m for your project:',
-        choices: ['MIT', 'GNU GPLv3', 'Apache 2.0', 'ISC', 'None'],
-        validate: license => {
+        choices: ['MIT', 'GNU GPLv3', 'Apache 2.0', 'ISC', 'None'], 
+        validate: license => { //we use this validate function to make sure the user chooses a license
             if (license) {
                 return true;
             } else {
-                console.log('Please choose a license for your project!'); //mandatory field
+                console.log('Please choose a license for your project!');
                 return false;
             }
         }
@@ -151,21 +172,23 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { //this function will write the README.md file
-    fs.writeFile('./README.MD', fileName, data, function (err) {   //this function will write the README.md file
+
+
+function writeToFile(fileName, data) { // here we have a function that will write the README file
+    fs.writeFile('./README.MD', fileName, data, function (err) {   
         if (err) {
-            return console.log(err);
+            return console.log(err); //if there is an error, we will log it to the console an error message
         }
         console.log("\x1b[33m README.md file created successfully! \x1b[0m");
     })
 }
 
 // TODO: Create a function to initialize app
-function init() { //this ffunction initializes the app and prompts the user with questions
+function init() { //this is the function that will initialize the app
     inquirer.prompt(questions).then(function
         (data) {
         console.log(data);
-        var fileName = generateMarkdown(data); //from the generateMarkdown.js file
+        var fileName = generateMarkdown(data); //from the generateMarkdown.js file, we will call the generateMarkdown function and pass in the data from the questions array
         writeToFile(fileName)
         }
     )
@@ -173,7 +196,8 @@ function init() { //this ffunction initializes the app and prompts the user with
 
 
 // Function call to initialize app
-instruction(); //our app starts with this function and init() function will be called after the instruction function is done
+instruction(); //we call the instruction function here to display the messages to the user then the init() will be called after the 
+//messages have been displayed
 
 
-//lets move to our generateMarkdown.js file to see what is next
+//lets see the generateMarkdown.js file now
