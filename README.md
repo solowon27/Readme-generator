@@ -32,11 +32,7 @@ Make your changes and commit them.
 Push your changes to the forked repository.
 Submit a pull request.
 ## Tests
-To run tests for this project, follow these steps:
-
-Open the terminal.
-Navigate to the project directory.
-Run the command npm test.
+NA
 ## Resources
 Here are some resources related to this project:
 
