@@ -1,4 +1,5 @@
 ## README Generator
+
 ## Description
 The README Generator is a command-line application that helps you create professional README files for your projects. It prompts you with a series of questions about your project, and based on your answers, it generates a Markdown file that can serve as the README for your project.
 
@@ -40,7 +41,7 @@ Node.js Documentation
 Inquirer Package
 File System (fs) Module
 ## Authors
-This project was authored by SOLOMON TEGEGNE.
+This project is created by SOLOMON TEGEGNE
 
 ## Questions
 If you have any questions about the project, please feel free to contact me via solowon27@hotmail.com.
